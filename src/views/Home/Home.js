@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import moment from 'moment';
 import Page from '../../components/Page';
 import HomeImage from '../../assets/img/background.png';
-import CashImage from '../../assets/img/BERRY.png';
+import BerryImage from '../../assets/img/Strawberry.png';
 import Image from 'material-ui-image';
 import styled from 'styled-components';
 import { Alert } from '@material-ui/lab';
@@ -155,13 +155,13 @@ const Home = () => {
         {/* Logo */}
         <Grid container item xs={12} sm={4} justifyContent="center">
           {/* <Paper>xs=6 sm=3</Paper> */}
-		  <Image color="none" style={{ width: "235px", paddingTop: '0px', height: '235px' }} src={CashImage} />
+		  <Image color="none" style={{ width: "235px", paddingTop: '0px', height: '235px' }} src={BerryImage} />
         </Grid>
         {/* Explanation text */}
         <Grid item xs={12} sm={8}>
           <Paper>
             <Box p={4}>
-              <h2>Welcome to Strawberry DAO!</h2>
+              <h2><StyledLink style={{ color: '#601611' }}>Welcome to Strawberry DAO!</StyledLink></h2>
               <p>Pegged to the price of 0.1 AVAX via seigniorage.</p>
               <p>
 							  <StyledLink href="/garden" style={{ color: '#05147c' }} >Stake</StyledLink> your BERRY-AVAX LP tokens to earn BSHARE seigniorage rewards.
