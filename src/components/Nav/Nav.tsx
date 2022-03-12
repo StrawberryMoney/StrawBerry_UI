@@ -115,16 +115,16 @@ const Nav = () => {
 						</Typography> */}
 						<Box mr={5}>
 							<Link color="textPrimary" to="/" className={classes.link}>
-								Home
+								<b>Home</b>
 							</Link>
 							<Link color="textPrimary" to="/garden" className={classes.link}>
-								Garden
+							<b>	Garden</b>
 							</Link>
 							<Link color="textPrimary" to="/smoothies" className={classes.link}>
-                Smoothies
+                <b>Smoothies</b>
 							</Link>
 							<Link color="textPrimary" to="/market" className={classes.link}>
-                Market
+                <b>Market</b>
 							</Link>
 							{/* <Link color="textPrimary" to="/dividends" className={classes.link}>
                 Dividends
@@ -145,13 +145,13 @@ const Nav = () => {
 								Vaults
 							</a> */}
               <a target="_blank" rel="noopener noreferrer" href="https://berry-finance.gitbook.io/untitled/" className={classes.link}>
-                Docs
+                <b>Docs</b>
               </a>
               {/* <a target="_blank" rel="noopener noreferrer" href="https://3omb.finance/" className={classes.link}>
                 3omb
               </a> */}
             </Box>
-            <AccountButton text="Connect" />
+            <b><AccountButton text="Connect" /></b>
           </>
         ) : (
           <>

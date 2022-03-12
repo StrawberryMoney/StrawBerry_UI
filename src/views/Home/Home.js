@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 const StyledLink = styled.a`
   font-weight: 700;
   text-decoration: none;
+  family-font: Lobster;
 `;
 
 const Home = () => {
@@ -161,15 +162,15 @@ const Home = () => {
         <Grid item xs={12} sm={8}>
           <Paper>
             <Box p={4}>
-              <h2><StyledLink style={{ color: '#601611' }}>Welcome to Strawberry DAO!</StyledLink></h2>
-              <p>Pegged to the price of 0.1 AVAX via seigniorage.</p>
+            
+              <h2><b><StyledLink style={{ color: '#601633'  }}>Welcome to Strawberry DAO!</StyledLink></b></h2>
+              <p><StyledLink style={{ letterSpacing: '1px' }}><i>Pegged to the price of 0.1 AVAX via seigniorage.</i></StyledLink></p>
               <p>
-							  <StyledLink href="/garden" style={{ color: '#05147c' }} >Stake</StyledLink> your BERRY-AVAX LP tokens to earn BSHARE seigniorage rewards.
+							  <StyledLink href="/garden" style={{ color: '#601611' }} ><b>Stake</b></StyledLink> <StyledLink style={{ letterSpacing: '1px' }}><i>your BERRY-AVAX LP tokens to earn BSHARE seigniorage rewards.</i></StyledLink>
               </p>
-              <p>To maximize profits, stake your harvested BSHAREs in the <StyledLink href="/smoothies" style={{ color: '#05147c' }} >Smoothies</StyledLink> to earn more BERRY!</p>
-              
+              <p><StyledLink style={{ letterSpacing: '1px' }}><i>To maximize profits, stake your harvested BSHAREs in the</i></StyledLink> <StyledLink href="/smoothies" style={{ color: '#601611',fontWeight:"600" }} ><b>Smoothies</b></StyledLink><StyledLink style={{ letterSpacing: '1px' }}><i> to earn more BERRY!</i>`</StyledLink></p>
               { isMStart && !isMOver ? 
-                <a href="/garden" style={{fontSize:"18px", fontWeight:"600", color:"#05147c" }}>BSHARE Reward Pools are live now!</a> : !isMStart ?
+                <StyledLink href="/garden" style={{fontSize:"20px", color: '#601611',fontWeight:"600" }}><b>BSHARE Reward Pools are live now!</b></StyledLink> : !isMStart ?
                 <div style={{display:'flex'}}>
                   BSHARE Reward Pools Launch In: <ProgressCountdown base={moment().toDate()} hideBar={true} deadline={mfrom} description="Pool Start" />
                 </div> : null 
@@ -186,8 +187,9 @@ const Home = () => {
         </Grid>		
         <Grid container justifyContent="center">
             <Box mt={3} mb={1} style={{ padding: '0 10px' }}>
-            <Alert variant="filled" severity="warning" style={{background:'#e3dcb838'}}>
+            <Alert variant="filled" severity="warning" style={{background:'#e3dcb838'}}><i>
                 Do your own research before investing. Investing is risky and may result in monetary loss. Strawberry DAO is beta software and may contain bugs. By using Strawberry DAO, you agree that the Strawberry DAO team is not responsible for any financial losses from investing in Strawberry DAO.
+                </i>
             </Alert>
             </Box>
         </Grid>
@@ -210,7 +212,8 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Card>
             <CardContent align="center">
-              <h2>Total Value Locked</h2>
+              
+              <h2><b><StyledLink style={{ color: '#601611' }}>Total Value Locked</StyledLink></b></h2>
               <CountUp style={{ fontSize: '25px' }} end={TVL} separator="," prefix="$" />
             </CardContent>
           </Card>
@@ -228,10 +231,10 @@ const Home = () => {
                 Stake Now
               </Button> */}
               <Button color="primary" href="/garden" variant="contained" style={{ marginRight: '10px' }}>
-                Garden
+               <b><StyledLink style={{  }}> Garden</StyledLink></b>
               </Button>
               <Button color="primary" href="/smoothies" variant="contained" style={{ marginRight: '25px' }}>
-                Stake
+              <b>Stake</b>
               </Button>
               <Button
                 target="_blank"
@@ -241,19 +244,19 @@ const Home = () => {
                 style={{ marginRight: '10px' }}
                 className={classes.button}
               >
-                Buy BERRY
+               <b>Buy BERRY</b> 
               </Button>
               {/* <Button variant="contained" target="_blank" href={buyTShareAddress} className={classes.button}>
                 Buy BSHARE
               </Button> */}
               <Button variant="contained" color="primary" target="_blank" href={buyTShareAddress} style={{ marginRight: '10px' }}>
-                Buy BSHARE
+               <b>Buy BSHARE</b> 
               </Button>
               <Button variant="contained" color="primary" target="_blank" href={`https://dexscreener.com/avalanche/${tomb.address}`} style={{ marginRight: '10px' }}>
-                BERRY Chart
+               <b>BERRY Chart</b> 
               </Button>
               <Button variant="contained" color="primary" target="_blank" href={`https://dexscreener.com/avalanche/${tShare.address}`} style={{ marginRight: '10px' }}>
-                BSHARE Chart
+               <b>BSHARE Chart</b> 
               </Button>
             </CardContent>
           </Card>
@@ -263,7 +266,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>BERRY</h2>
+              <h2><b><StyledLink style={{ color: '#601611' }}>BERRY</StyledLink></b></h2>
               <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('BERRY');
@@ -329,7 +332,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>BSHARE</h2>
+              <h2><b><StyledLink style={{ color: '#601611' }}>BSHARE</StyledLink></b></h2>
               <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('BSHARE');
@@ -366,7 +369,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>BBOND</h2>
+              <h2><b><StyledLink style={{ color: '#601611' }}>BBOND</StyledLink></b></h2>
               <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('BBOND');
@@ -406,7 +409,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card>
             <CardContent align="center">
-              <h2>BERRY-WAVAX Joe LP</h2>
+              <h2><b><StyledLink style={{ color: '#601611' }}>BERRY-WAVAX Joe LP</StyledLink></b></h2>
               <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('BERRY-WAVAX');
@@ -445,7 +448,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card>
             <CardContent align="center">
-              <h2>BSHARE-WAVAX Joe LP</h2>
+              <h2><b><StyledLink style={{ color: '#601611' }}>BSHARE-WAVAX Joe LP</StyledLink></b></h2>
               <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('BSHARE-WAVAX');
