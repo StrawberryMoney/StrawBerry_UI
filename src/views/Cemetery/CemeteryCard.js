@@ -44,21 +44,21 @@ const CemeteryCard = ({ bank }) => {
               {bank.depositTokenName}
             </Typography>
             {Date.now() >= new Date(bank.starttime).getTime() ? null : 
-            <div style={{display:'flex'}}>Starts In: <ProgressCountdown color="#040d4e" base={moment().toDate()} hideBar={true} deadline={new Date(bank.starttime)} description="start pool" /></div> }
+            <div style={{display:'flex'}}>Starts In: <ProgressCountdown color="#601611" base={moment().toDate()} hideBar={true} deadline={new Date(bank.starttime)} description="start pool" /></div> }
             <Typography color="textSecondary">
               {/* {bank.name} */}
-              Deposit: <span style={{color: '#040d4e', fontWeight:'700'}}>{bank.depositTokenName.toUpperCase()}</span>
+              Deposit: <span style={{color: '#601611', fontWeight:'700'}}>{bank.depositTokenName.toUpperCase()}</span>
             </Typography>
               {/* Commenting out for now as it seems to be blocking and site doesnt load properly */}
              <Typography color="textSecondary">
-             Earn: <span style={{color: '#040d4e', fontWeight:'700'}}>{bank.earnTokenName.toUpperCase()} </span>
+             Earn: <span style={{color: '#601611', fontWeight:'700'}}>{bank.earnTokenName.toUpperCase()} </span>
             </Typography>
             <Typography color="textSecondary">
-              Daily APR: <span style={{color: '#040d4e', fontWeight:'700'}}>{bank.closedForStaking || bank.genesisFinished ? '0.00' : statsOnPool?.dailyAPR}%</span>
+              Daily APR: <span style={{color: '#601611', fontWeight:'700'}}>{bank.closedForStaking || bank.genesisFinished ? '0.00' : statsOnPool?.dailyAPR}%</span>
             </Typography>
             {!bank.depositTokenName.endsWith('LP') && 
               <Typography color="textSecondary">
-                Deposit Fee: <span style={{color: '#040d4e', fontWeight:'700'}}>1%</span>
+                Deposit Fee: <span style={{color: '#601611', fontWeight:'700'}}>1%</span>
               </Typography>
             }
           </Box>

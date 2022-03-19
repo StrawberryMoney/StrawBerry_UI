@@ -7,6 +7,9 @@ import { Box, Container, Typography, Grid } from '@material-ui/core';
 
 import { Alert } from '@material-ui/lab';
 
+import Image from 'material-ui-image';
+import Garden from '../../assets/img/garden.png';
+
 import UnlockWallet from '../../components/UnlockWallet';
 // import CountDownTimer from '../../components/Countdown';
 import Page from '../../components/Page';
@@ -17,6 +20,19 @@ import useGenesisPoolAllocationTimes from '../../hooks/useGenesisPoolAllocationT
 import useMeteorPoolAllocationTimes from '../../hooks/useMeteorPoolAllocationTimes';
 import ProgressCountdown from './ProgressCountdown';
 import useBanks from '../../hooks/useBanks';
+
+
+
+import styled from 'styled-components';
+
+
+
+const StyledLink = styled.a`
+  font-weight: 700;
+  text-decoration: none;
+  family-font: Lobster;
+`;
+
 
 const BackgroundImage = createGlobalStyle`
   body {
@@ -39,20 +55,25 @@ const Cemetery = () => {
       <Page>
         <Route exact path={path}>
           <BackgroundImage />
+          
           {!!account ? (
             <Container maxWidth="lg">
-              <Typography color="textPrimary" align="center" variant="h2" gutterBottom>
-                Garden
+              <Image color="none" style={{ width: "235px", paddingTop: '0px', height: '235px', left: '480px' }} src={Garden} />
+              <Typography color="#601611" align="center" variant="h2" gutterBottom>
+             
+              
+              <b><StyledLink style={{ color: '#601611'  }}>Garden</StyledLink></b>
+                
               </Typography>
-
+              
               <Box mt={5}>
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom>
-                    Earn BSHARE by staking LP
+                  <b><StyledLink style={{ color: '#601611'  }}> Earn BSHARE by staking LP</StyledLink></b>
                   </Typography>
-                  <Alert variant="filled" style={{background:'#fffbe6b8'}}>
+                  <Alert variant="filled" style={{background:'#e3dcb838'}}>
                     {isStart ? 
-                      <div>Pools are live now, Stake LPs to earn more BSHARE, No deposit fee</div> : 
+                      <div><i><StyledLink style={{ color: '#601611'  }}>Pools are live now, Stake LPs to earn more BSHARE, No deposit fee</StyledLink></i></div> : 
                       <>
                         Pools starting at {mfrom.toUTCString()}, No deposit fee.<br/>
                         <div style={{display:'flex'}}>BSHARE reward pools start in: <ProgressCountdown base={moment().toDate()} hideBar={true} deadline={mfrom} description="End Pool" />.</div>
@@ -90,11 +111,12 @@ const Cemetery = () => {
 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
-                    Genesis Pools
+                  <b><StyledLink style={{ color: '#601611'  }}> Genesis Pools</StyledLink></b>
                   </Typography>
-                  <Alert variant="filled" severity={isOver ? 'info' : 'success'} style={{background:'#fffbe6b8'}}>
+                  <Alert variant="filled" severity={isOver ? 'info' : 'success'} style={{background:'#e3dcb838'}}>
                     {isOver ? 
-                      <div>All below pools have ended. Please unstake and collect your rewards.</div> : 
+                    
+                      <div><i><StyledLink style={{ color: '#601611'  }}>All below pools have ended. Please unstake and collect your rewards.</StyledLink></i></div> : 
                       <>
                         Pools starting at {from.toUTCString()} and will run for 2 days with a 1% deposit fee.<br/>
                         <div style={{display:'flex'}}>Time until genesis pools end: <ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="End Pool" />.</div>

@@ -20,11 +20,21 @@ import { getDisplayBalance } from '../../utils/formatBalance';
 import { BOND_REDEEM_PRICE, BOND_REDEEM_PRICE_BN } from '../../tomb-finance/constants';
 import { Typography } from '@material-ui/core';
 
+import Image from 'material-ui-image';
+import Bmarket from '../../assets/img/Market.png';
+
+
 const BackgroundImage = createGlobalStyle`
   body {
     background: url(${PitImage}) no-repeat !important;
     background-size: cover !important;
   }
+`;
+
+const StyledLink = styled.a`
+  font-weight: 700;
+  text-decoration: none;
+  family-font: Lobster;
 `;
 
 const Pit: React.FC = () => {
@@ -64,11 +74,12 @@ const Pit: React.FC = () => {
 				<BackgroundImage />
 				{!!account ? (
 					<>
+					<Image color="none" style={{ width: "235px", paddingTop: '0px', height: '235px', left: '500px' }} src={Bmarket} />
 						<Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-							Buy & Redeem Market
+						<b><StyledLink style={{ color: '#601611'  }}>Buy & Redeem Market </StyledLink></b>
 						</Typography>
 						<Route exact path={path}>
-							<PageHeader icon={'🏦'} subtitle="Earn premiums upon redemption" />
+						<StyledLink style={{ color: '#601611'  }}>	<PageHeader icon={'🏦'} subtitle="Earn premiums upon redemption" /></StyledLink>
 						</Route>
 						<StyledBond>
 							<StyledCardWrapper>

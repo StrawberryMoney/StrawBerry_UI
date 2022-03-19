@@ -163,7 +163,7 @@ const Home = () => {
           <Paper>
             <Box p={4}>
             
-              <h2><b><StyledLink style={{ color: '#601633'  }}>Welcome to Strawberry DAO!</StyledLink></b></h2>
+              <h2><b><StyledLink style={{ color: '#601611'  }}>Welcome to Strawberry DAO!</StyledLink></b></h2>
               <p><StyledLink style={{ letterSpacing: '1px' }}><i>Pegged to the price of 0.1 AVAX via seigniorage.</i></StyledLink></p>
               <p>
 							  <StyledLink href="/garden" style={{ color: '#601611' }} ><b>Stake</b></StyledLink> <StyledLink style={{ letterSpacing: '1px' }}><i>your BERRY-AVAX LP tokens to earn BSHARE seigniorage rewards.</i></StyledLink>
@@ -188,7 +188,9 @@ const Home = () => {
         <Grid container justifyContent="center">
             <Box mt={3} mb={1} style={{ padding: '0 10px' }}>
             <Alert variant="filled" severity="warning" style={{background:'#e3dcb838'}}><i>
+            <StyledLink style={{ color: '#601611'  }}>
                 Do your own research before investing. Investing is risky and may result in monetary loss. Strawberry DAO is beta software and may contain bugs. By using Strawberry DAO, you agree that the Strawberry DAO team is not responsible for any financial losses from investing in Strawberry DAO.
+                </StyledLink>
                 </i>
             </Alert>
             </Box>
@@ -423,7 +425,7 @@ const Home = () => {
               </Button>
               <Box mt={2}>
                 <CardIcon>
-                  <TokenSymbol symbol="BERRY-AVAX-LP" size={120}/>
+                <StyledLink style={{ color: '#601611'  }}><TokenSymbol symbol="BERRY-AVAX-LP" size={120}/></StyledLink>
                 </CardIcon>
               </Box>
               <Box mt={2}>

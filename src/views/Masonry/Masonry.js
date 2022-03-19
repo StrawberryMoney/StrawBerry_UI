@@ -11,6 +11,10 @@ import { Box, Card, CardContent, Button, Typography, Grid } from '@material-ui/c
 
 import { Alert } from '@material-ui/lab';
 
+import Image from 'material-ui-image';
+import Smoothies from '../../assets/img/Smoothie.png';
+
+
 import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
 
@@ -20,6 +24,8 @@ import { getDisplayBalance } from '../../utils/formatBalance';
 import useCurrentEpoch from '../../hooks/useCurrentEpoch';
 import useFetchMasonryAPR from '../../hooks/useFetchMasonryAPR';
 
+
+
 import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP';
 import useTreasuryAllocationTimes from '../../hooks/useTreasuryAllocationTimes';
 import useTotalStakedOnMasonry from '../../hooks/useTotalStakedOnMasonry';
@@ -28,6 +34,13 @@ import useWithdrawCheck from '../../hooks/masonry/useWithdrawCheck';
 import ProgressCountdown from './components/ProgressCountdown';
 import MasonryImage from '../../assets/img/background.png';
 import { createGlobalStyle } from 'styled-components';
+
+
+const StyledLink = styled.a`
+  font-weight: 700;
+  text-decoration: none;
+  family-font: Lobster;
+`;
 
 const BackgroundImage = createGlobalStyle`
   body, html {
@@ -64,15 +77,16 @@ const Masonry = () => {
       <BackgroundImage />
       {!!account ? (
         <>
+        <Image color="none" style={{ width: "235px", paddingTop: '0px', height: '235px', left: '500px' }} src={Smoothies} />
           <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-            Smoothies
+          <b><StyledLink style={{ color: '#601611'  }}> Smoothies</StyledLink></b>
           </Typography>
           <Box mt={5}>
             <Grid container justifyContent="center" spacing={3}>
               <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                 <Card className={classes.gridItem}>
                   <CardContent>
-                    <Typography style={{ textAlign: 'center' }}>Next Epoch</Typography>
+                    <Typography style={{ textAlign: 'center' }}><b><StyledLink style={{ color: '#601611'  }}>Next Epoch</StyledLink></b></Typography>
                     <ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="Next Epoch" />
                   </CardContent>
                 </Card>
@@ -80,7 +94,7 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>Current Epoch</Typography>
+                    <Typography><b><StyledLink style={{ color: '#601611'  }}>Current Epoch</StyledLink></b></Typography>
                     <Typography>{Number(currentEpoch)}</Typography>
                   </CardContent>
                 </Card>
@@ -89,7 +103,7 @@ const Masonry = () => {
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
                     <Typography>
-                      BERRY Price<small>(TWAP)</small>
+                   <b> <StyledLink style={{ color: '#601611'  }}>BERRY Price<small>(TWAP)</small></StyledLink></b>
                     </Typography>
                     <Typography>{scalingFactor}</Typography>
                   </CardContent>
@@ -98,7 +112,7 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>BSHARE Staked</Typography>
+                    <Typography><b><StyledLink style={{ color: '#601611'  }}>BSHARE Staked</StyledLink></b></Typography>
                     <Typography>{getDisplayBalance(totalStaked)}</Typography>
                   </CardContent>
                 </Card>
@@ -108,7 +122,7 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>APR</Typography>
+                    <Typography><b><StyledLink style={{ color: '#601611'  }}>APR</StyledLink></b></Typography>
                     <Typography>{masonryAPR.toFixed(2)}%</Typography>
                   </CardContent>
                 </Card>
@@ -116,7 +130,7 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>Daily</Typography>
+                    <Typography><b><StyledLink style={{ color: '#601611'  }}>Daily</StyledLink></b></Typography>
                     <Typography>{(masonryAPR / 365).toFixed(2)}%</Typography>
                   </CardContent>
                 </Card>
@@ -124,7 +138,7 @@ const Masonry = () => {
               <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
-                    <Typography>Epoch</Typography>
+                    <Typography><b><StyledLink style={{ color: '#601611'  }}>Epoch</StyledLink></b></Typography>
                     <Typography>{(masonryAPR / 365 / 4).toFixed(2)}%</Typography>
                   </CardContent>
                 </Card>
@@ -133,8 +147,8 @@ const Masonry = () => {
 
             <Grid container justifyContent="center">
               <Box mt={6} style={{width:'800px'}}>
-                <Alert variant="filled" severity="warning">
-                  Staked BSHAREs can only be withdrawn after 2 epochs (12 hours) since deposit. Any time tokens are harvested, deposited, or withdrawn, the lockup timer gets reset.
+                <Alert variant="filled" severity="warning"style={{background:'#e3dcb838'}}>
+               <b> <StyledLink style={{ color: '#601611'  }}> Staked BSHAREs can only be withdrawn after 2 epochs (12 hours) since deposit. Any time tokens are harvested, deposited, or withdrawn, the lockup timer gets reset.</StyledLink></b>
                 </Alert>
               </Box>
             </Grid>
